@@ -50,7 +50,7 @@ phina.define("SceneMain", {
     ).addChildTo(this);
     // Xボタン押下時の処理
     this.xbutton.sprite.setInteractive(true);
-    this.xbutton.sprite.onclick = function() {
+    this.xbutton.sprite.onpointstart = function() {
       this.exit("Exit");
     }.bind(this);
   },
@@ -119,8 +119,8 @@ phina.define("SceneMain", {
           ).addChildTo(this.beforeStart);
           // スタートボタン押下時の処理
           startbutton.sprite.setInteractive(true);
-          startbutton.sprite.onclick = function() {
-            console.log("startButton.onclick");
+          startbutton.sprite.onpointstart = function() {
+            console.log("startButton.onpointstart");
             axios.post("./apiStartGame.php")
             .then(function (response) {
 
@@ -151,7 +151,7 @@ phina.define("SceneMain", {
               ).addChildTo(this.afterStart);
               // カードタッチ時の処理
               mycard.sprite.setInteractive(true);
-              mycard.sprite.onclick = function() {
+              mycard.sprite.onpointstart = function() {
                 // スプライト消去
                 mycard.sprite.remove();
                 // タッチ時間を更新
@@ -242,7 +242,7 @@ phina.define("SceneMain", {
       ).addChildTo(this.selectedCards);
       // カードタッチ時の処理
       selected_card.sprite.setInteractive(true);
-      selected_card.sprite.onclick = function() {
+      selected_card.sprite.onpointstart = function() {
         // 1枚目を除く最前のスプライトのみ処理
         array_length = this.selectedCards.children.length;
         if (array_length > 1 && selected_card.cardNo == this.selectedCards.children[array_length - 1].cardNo) {
