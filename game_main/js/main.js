@@ -50,6 +50,7 @@ const ASSETS = {
     "cards":           "./images/cards.png" + datestr,
     "card_ura":        "./images/card_ura.png" + datestr,
     "start_button":    "./images/startbutton.png" + datestr,
+    "sankasya_bosyu":  "./images/sankasya_bosyu.png" + datestr,
     "xbutton":         "./images/xbutton.png" + datestr
   },
   // スプライトシート
@@ -66,6 +67,13 @@ const ASSETS = {
       "frame": { "width": 300, "height": 300, "cols": 2, "rows": 1 },
       "animations" : {
         "000": {"frames": [0, 1] , "next": "000", "frequency": 10 }
+      }
+    },
+    "sankasya_bosyu":
+    {
+      "frame": { "width": 600, "height": 431, "cols": 1, "rows": 1 },
+      "animations" : {
+        "000": {"frames": [0], "next": "000", "frequency": 1 }
       }
     },
     "cards":

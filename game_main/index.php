@@ -28,3 +28,4 @@
 <script src="./js/SpriteButtonStart.js?<?php echo date('YmdHis') ?>"></script>
 <script src="./js/SpriteCard.js?<?php echo date('YmdHis') ?>"></script>
 <script src="./js/SpriteCardSelected.js?<?php echo date('YmdHis') ?>"></script>
+<script src="./js/SpriteSankasyaBosyu.js?<?php echo date('YmdHis') ?>"></script>

@@ -20,7 +20,7 @@ phina.define("SceneMain", {
     // ボタン描画
     this.putXButton();
     // スプライト
-
+    this.sankasyaBosyu;
     // スプライトグループ
     this.beforeStart = DisplayElement().addChildTo(this);
     this.afterStart = DisplayElement().addChildTo(this);
@@ -88,6 +88,12 @@ phina.define("SceneMain", {
 
     // スタートボタン押下前
     if (response.data[this.sessionId].gamestart_flg == 0) {
+      // 参加者募集中
+      if (this.sankasyaBosyu == null) {
+        this.sankasyaBosyu = SpriteSankasyaBosyu("000", SCREEN_WIDTH / 2, SCREEN_HEIGHT / 4 + LABEL_FONT_SIZE).addChildTo(this);
+        this.sankasyaBosyu.addNameLabel("参加者を待っています", "white");
+        this.sankasyaBosyu.moveFront();
+      }
       for (let array_no = 0; array_no < keys.length; array_no++) {
         // 自プレイヤーの描画
         if (this.sessionId == keys[array_no]) {
@@ -133,6 +139,8 @@ phina.define("SceneMain", {
 
     // スタートボタン押下後
     } else {
+      // スプライト消去
+      if (this.sankasyaBosyu != null) { this.sankasyaBosyu.removeSprite(); }
       for (let array_no = 0; array_no < keys.length; array_no++) {
         // 自プレイヤーの描画
         if (this.sessionId == keys[array_no]) {
